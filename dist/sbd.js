@@ -244,7 +244,8 @@ exports.sentences = function(text, user_options) {
         "sanitize"            : false,
         "allowed_tags"        : false,
         "preserve_whitespace" : false,
-        "abbreviations"       : null
+        "abbreviations"       : null,
+        "detect_concat"       : true
     };
 
     if (typeof user_options === "boolean") {
@@ -416,7 +417,7 @@ exports.sentences = function(text, user_options) {
             }
         }
 
-        if (temp = Match.isConcatenated(words[i])) {
+        if (options.detect_concat && (temp = Match.isConcatenated(words[i]))) {
             current.pop();
             current.push(temp[0]);
             sentences.push(current);
