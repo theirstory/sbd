@@ -47,7 +47,8 @@ var options = {
     "sanitize"           : false,
     "allowed_tags"       : false,
     "preserve_whitespace" : false,
-    "abbreviations"      : null
+    "abbreviations"      : null,
+    "detect_concat"      : true
 };
 ```
 
@@ -57,6 +58,7 @@ var options = {
 * `allowed_tags`: To sanitize html, the library [santize-html](https://github.com/punkave/sanitize-html) is used. You can pass the allowed tags option.
 * `preserve_whitespace`: Preserve the literal whitespace between words and sentences (otherwise, internal spaces are normalized to a single space char, and inter-sentence whitespace is omitted). Preserve whitespace has no effect if either newline_boundaries or html_boundaries is specified.
 * `abbreviations`: list of abbreviations to override the original ones for use with other languages. Don't put dots in your custom abbreviations.
+* `detect_contact`: Looks for a sentence stop ('.', '!' or '?') in the middle of word. If found, inserts a sentence break.
 
 
 
